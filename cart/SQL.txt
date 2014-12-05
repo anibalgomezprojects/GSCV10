@@ -1,0 +1,83 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.4
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jun 07, 2009 at 08:07 PM
+-- Server version: 5.0.51
+-- PHP Version: 5.2.5
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `cart`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `process`
+--
+
+CREATE TABLE IF NOT EXISTS `process` (
+  `id` int(10) NOT NULL auto_increment,
+  `total` varchar(30) collate latin1_general_ci NOT NULL,
+  `products` varchar(30) collate latin1_general_ci NOT NULL,
+  `shopping_cart` text collate latin1_general_ci NOT NULL,
+  `session_id` varchar(30) collate latin1_general_ci NOT NULL,
+  `client_info` text collate latin1_general_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=91 ;
+
+--
+-- Dumping data for table `process`
+--
+
+INSERT INTO `process` (`id`, `total`, `products`, `shopping_cart`, `session_id`, `client_info`) VALUES
+(90, '40', '2', 'Star Page Index, GS-kenji, ', '127.0.0.1', 'Nombre: <br>Pais: <br>Direccion: <br>Cp: <br>Empresa: <br><font color=red>Email: </font><br><font color=blue>Pago: Deposito Bancario</font>');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` text collate latin1_general_ci NOT NULL,
+  `image` text collate latin1_general_ci NOT NULL,
+  `shortdesc` tinytext collate latin1_general_ci NOT NULL,
+  `longdesc` text collate latin1_general_ci NOT NULL,
+  `cost` varchar(30) collate latin1_general_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `title`, `image`, `shortdesc`, `longdesc`, `cost`) VALUES
+(1, 'Jazzmaster Template', 'jazzmaster', 'Fender Jazzmaster', 'The Fender Jazzmaster Etc...', '30.00'),
+(2, 'Star Page Index', 'star', 'Star Index Page ', 'Star Index Page ...', '20.00'),
+(3, 'GS-kenji', 'GS-kenji', 'GS-kenji start index page', 'GS-kenji start index page...', '20.00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stock`
+--
+
+CREATE TABLE IF NOT EXISTS `stock` (
+  `id` int(11) NOT NULL auto_increment,
+  `product_id` int(11) NOT NULL,
+  `session_id` varchar(30) collate latin1_general_ci NOT NULL,
+  `title` text collate latin1_general_ci NOT NULL,
+  `cost` varchar(30) collate latin1_general_ci NOT NULL,
+  `type` varchar(30) collate latin1_general_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=64 ;
+
+--
+-- Dumping data for table `stock`
+--
+
